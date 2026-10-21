@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
 
 interface LoaderProps {
   onComplete: () => void;
@@ -8,7 +7,6 @@ interface LoaderProps {
 export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   const [stage, setStage] = useState<'stones' | 'wordmark' | 'caption' | 'exiting' | 'done'>('stones');
   const [progress, setProgress] = useState(15);
-  const location = useLocation();
 
   const handleFinish = useCallback(() => {
     setStage('exiting');
@@ -22,7 +20,7 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   useEffect(() => {
     // Check if returning visitor in same session (unless ?intro=1)
     const hasSeen = sessionStorage.getItem('cairn_loader_seen');
-    const searchParams = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
     const forceIntro = searchParams.get('intro') === '1';
 
     if (hasSeen && !forceIntro) {
@@ -60,7 +58,7 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
       window.removeEventListener('keydown', handleSkip);
       window.removeEventListener('click', handleSkip);
     };
-  }, [handleFinish, location.search, onComplete]);
+  }, [handleFinish, onComplete]);
 
   if (stage === 'done') return null;
 
