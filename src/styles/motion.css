@@ -1,0 +1,136 @@
+/* Keyframes and structural transitions */
+
+@keyframes cairn-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cairn-overlay-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cairn-drawer-enter-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cairn-sheet-enter-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cairn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cairn-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes cairn-pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes cairn-scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  95% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+/* Hero packet travels along edge paths */
+@keyframes packet-move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.animate-reveal {
+  animation: cairn-reveal var(--dur-slow) var(--ease-settle) forwards;
+}
+
+.animate-overlay {
+  animation: cairn-overlay-enter var(--dur-base) var(--ease-settle) forwards;
+}
+
+.animate-spin {
+  animation: cairn-spin 700ms linear infinite;
+}
+
+.animate-shimmer {
+  animation: cairn-shimmer 1200ms linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal,
+  .animate-overlay {
+    animation-duration: 120ms;
+    animation-name: cairn-fade-in;
+  }
+  .animate-spin {
+    animation: none;
+  }
+  .animate-shimmer {
+    animation: none;
+  }
+}
+
+@keyframes cairn-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

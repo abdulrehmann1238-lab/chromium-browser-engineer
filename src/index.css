@@ -1,0 +1,91 @@
+@import "./styles/base.css";
+
+/* Layout utilities matching Section 28 4px grid & tokens */
+.container-site {
+  width: 100%;
+  max-width: var(--content-max-site);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-site {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+.container-console {
+  width: 100%;
+  max-width: var(--content-max-console);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container-console {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* Eyebrow badge */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: inline-block;
+  margin-bottom: var(--space-2);
+}
+
+/* Background dot grid for Hero (Section 7: 24px dot grid, 1px dots at 6% ink) */
+.hero-dot-grid {
+  background-image: radial-gradient(rgba(29, 35, 39, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Shimmer animation bar for skeletons */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--sunken);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  animation: cairn-shimmer 1.5s infinite;
+}
+
+/* Accessible hidden */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

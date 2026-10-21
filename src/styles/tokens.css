@@ -1,0 +1,116 @@
+:root {
+  /* surfaces */
+  --paper: #F5F3EE;
+  --surface: #FBFAF7;
+  --elevated: #FFFFFF;
+  --sunken: #ECE9E1;
+  --hover: #F1EEE7;
+  --line: #DDD9CF;
+  --line-strong: #C6C1B4;
+
+  /* text */
+  --ink-1: #1D2327;
+  --ink-2: #3F474D;
+  --ink-3: #5F676D;
+
+  /* brand */
+  --primary: #2C5F5D;
+  --primary-hover: #244E4C;
+  --primary-active: #1B3C3A;
+  --primary-subtle: #E3EEEC;
+  --primary-border: #BCD3CF;
+  --accent: #C06A3E;        /* graphics only, one per viewport */
+  --accent-text: #8F4E28;
+  --accent-tint: #F4E5DA;
+
+  /* status */
+  --success: #3F7D58;  --success-tint: #E2EFE6;
+  --warning: #B08A1E;  --warning-text: #7A5C0B;  --warning-tint: #F6EDCF;
+  --error: #B0383F;    --error-text: #8C2A31;    --error-tint: #F5E0DF;
+  --info: #46708F;     --info-tint: #E1EAF1;
+
+  /* dark wells (trace, code, logs, process tree, closing section) */
+  --well-bg: #1F2528;
+  --well-raised: #283034;
+  --well-line: #38424A;
+  --well-text: #E8E5DC;
+  --well-muted: #9AA3A8;
+  --well-ring: #9FC0B8;
+  --well-error: #E08A8F;
+
+  /* trace lanes */
+  --lane-browser: #9FC0B8;
+  --lane-network: #8FAFCB;
+  --lane-renderer: #D5B27A;
+  --lane-gpu: #B79CC4;
+  --lane-cdp: #D49A78;
+
+  /* typography */
+  --font-display: 'Newsreader Variable', 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Hanken Grotesk Variable', 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-h1: clamp(40px, 4.6vw, 56px);   /* line-height 1.05, tracking -0.02em */
+  --text-h2: clamp(30px, 3.4vw, 40px);   /* 1.12, -0.015em */
+  --text-h3: 22px;                        /* 1.3, -0.005em */
+  --text-h4: 17px;                        /* 1.35 */
+  --text-body-site: 17px;                 /* 1.6 */
+  --text-body-editorial: 19px;            /* 1.65 */
+  --text-body-console: 14px;              /* 1.5 */
+  --text-small: 13px;                     /* 1.45 */
+  --text-label: 12px;                     /* 1.3, 0.04em */
+  --text-code: 13px;                      /* 1.55 */
+
+  /* spacing (4px grid) */
+  --space-0-5: 2px;  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;
+  --space-4: 16px;   --space-5: 20px;  --space-6: 24px;  --space-8: 32px;
+  --space-10: 40px;  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --space-24: 96px;  --space-32: 128px;
+
+  /* radius */
+  --radius-sm: 4px;   /* chips, tags */
+  --radius-md: 8px;   /* buttons, inputs */
+  --radius-lg: 12px;  /* cards, panels */
+  --radius-xl: 16px;  /* modals, sheets */
+  --radius-full: 999px;
+
+  /* shadows (overlays only) */
+  --shadow-popover: 0 4px 12px -2px rgba(29,35,39,.10), 0 1px 3px rgba(29,35,39,.06);
+  --shadow-overlay: 0 16px 40px -8px rgba(29,35,39,.20), 0 4px 8px rgba(29,35,39,.06);
+
+  /* focus */
+  --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--primary);
+  --focus-ring-well: 0 0 0 2px var(--well-bg), 0 0 0 4px var(--well-ring);
+
+  /* motion */
+  --dur-instant: 90ms;
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --dur-slower: 600ms;
+  --ease-settle: cubic-bezier(.2, .8, .2, 1);
+  --ease-move: cubic-bezier(.65, 0, .35, 1);
+  --ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --ease-lift: cubic-bezier(.7, 0, .2, 1);
+
+  /* layout */
+  --content-max-site: 1360px;
+  --content-max-console: 1680px;
+  --nav-h: 72px;  --nav-h-scrolled: 60px;
+  --topbar-h: 56px;  --sidebar-w: 232px;  --sidebar-rail-w: 64px;
+  --row-h: 44px;  --row-h-compact: 36px;
+
+  /* z-index */
+  --z-sticky: 10;  --z-nav: 20;  --z-drawer: 40;  --z-modal: 50;
+  --z-popover: 60; --z-palette: 70; --z-toast: 80; --z-tooltip: 90; --z-loader: 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-base: 120ms; --dur-slow: 120ms; --dur-slower: 120ms; }
+}
+
+[data-perf="lite"] {
+  --dur-base: 120ms;
+  --dur-slow: 160ms;
+  --dur-slower: 200ms;
+}
